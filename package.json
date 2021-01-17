@@ -1,0 +1,19 @@
+{
+  "name": "franchise-cricket-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Abhishek Kumar",
+  "license": "MIT",
+  "dependencies": {
+    "config": "^3.3.3",
+    "express": "^4.17.1",
+    "joi": "^17.3.0",
+    "mongoose": "^5.11.12",
+    "winston": "^3.3.3"
+  }
+}
