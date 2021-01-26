@@ -25,8 +25,8 @@ const Auction = mongoose.model("Auction", auctionSchema);
 //api schema validation
 const validate = (requestBody) => {
   const schema = Joi.object({
-    teamId: Joi.string().required(),
-    playerId: Joi.string().required(),
+    teamId: Joi.objectId().required(),
+    playerId: Joi.objectId().required(),
   });
 
   return schema.validate(requestBody);

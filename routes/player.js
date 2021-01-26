@@ -1,12 +1,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
+const _ = require("lodash");
+const auth = require("../middleware/authorization/auth");
+const playerManager = require("../middleware/authentication/playerManager");
 
 const { Player, validate } = require("../model/player");
 
 //get all
 router.get("/", async (req, res) => {
-  const players = await Player.find().sort();
+  const players = await Player.find().sort("createdOn");
+  //throw new Error("demo error occured");
   res.status(200).send(players);
 });
 
@@ -28,18 +32,19 @@ router.get("/:id", async (req, res) => {
 
 ////////////////////////////////////////////////////////////////
 //create players
-router.post("/", async (req, res) => {
+router.post("/", [auth, playerManager], async (req, res) => {
   //validation for body
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
+  //check for existing player
+  let player = await Player.findOne({ email: req.body.email });
+  if (player) return res.status(400).send("Player already registered");
+
   //save body to db
-  const player = new Player({ name: req.body.name, country: req.body.country });
-  try {
-    player = await player.save();
-  } catch (e) {
-    console.log(e.message);
-  }
+  player = new Player(_.pick(req.body, ["name", "country", "email"]));
+
+  player = await player.save();
 
   //sending response
   res.send(player);
@@ -47,9 +52,9 @@ router.post("/", async (req, res) => {
 
 //////////////////////////////////////////////////////////////
 //update players
-router.put("/:id", async (req, res) => {
+router.put("/:id", [auth, playerManager], async (req, res) => {
   //check for id in db
-  const player = await Player.findById(req.params.id);
+  let player = await Player.findById(req.params.id);
   //validation for id
   if (!player) return res.status(404).send("Player Not Found");
 
@@ -58,25 +63,21 @@ router.put("/:id", async (req, res) => {
   if (error) return res.status(400).send(error.details[0].message);
 
   //update body in db
-  try {
-    player = await Player.updateOne(
-      { _id: req.params.id },
-      {
-        name: req.body.name,
-        country: req.body.country,
-      },
-      { new: true }
-    );
-  } catch (e) {
-    console.log(e.message);
-  }
+  player = await Player.updateOne(
+    { _id: req.params.id },
+    {
+      name: req.body.name,
+      country: req.body.country,
+    },
+    { new: true }
+  );
 
   res.send(player);
 });
 
 //////////////////////////////////////////////////////////////////
 //delete player
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", [auth, playerManager], async (req, res) => {
   //check for id in db
   const player = await Player.findById(req.params.id);
 

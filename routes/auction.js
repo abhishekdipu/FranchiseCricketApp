@@ -3,6 +3,8 @@ const router = express.Router();
 const { Auction, validate } = require("../model/auction");
 const { Player } = require("../model/player");
 const { Team } = require("../model/team");
+const auth = require("../middleware/authorization/auth");
+const teamManager = require("../middleware/authentication/teamManager");
 
 const mongoose = require("mongoose");
 const Fawn = require("fawn"); //for transaction
@@ -17,7 +19,7 @@ router.get("/", async (req, res) => {
 });
 
 //make a auction
-router.post("/", async (req, res) => {
+router.post("/", [auth, teamManager], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 

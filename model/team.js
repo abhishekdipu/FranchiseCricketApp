@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Joi = require("joi");
-const { playerSchema } = require("./player");
 
 const teamSchema = new mongoose.Schema({
   name: {
@@ -17,10 +16,15 @@ const teamSchema = new mongoose.Schema({
     maxlength: 50,
     trim: true,
   },
-
-  players: {
-    type: [playerSchema],
-    required: false,
+  email: {
+    type: "String",
+    required: true,
+    minlength: 5,
+    maxlength: 50,
+  },
+  createdOn: {
+    type: "Date",
+    default: Date.now,
   },
 });
 
@@ -30,7 +34,7 @@ const validate = (requestBody) => {
   const schema = Joi.object({
     name: Joi.string().required().min(2).max(50),
     owner: Joi.string().required().min(2).max(50),
-    playersId: Joi.string(),
+    email: Joi.string().required().min(5).max(50).email(),
   });
 
   return schema.validate(requestBody);

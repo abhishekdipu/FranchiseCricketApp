@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const config = require("config");
-const winston = require("winston");
+const logger = require("../config/logger");
 
 module.exports = function () {
   mongoose
@@ -9,5 +9,5 @@ module.exports = function () {
       useUnifiedTopology: true,
       useFindAndModify: false,
     })
-    .then(() => winston.info("connected to mongodb..."));
+    .then(() => logger.info("connected to mongodb..."));
 };

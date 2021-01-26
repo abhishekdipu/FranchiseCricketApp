@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const { Team, validate } = require("../model/team");
-const { Player } = require("../model/player");
+const _ = require("lodash");
+const auth = require("../middleware/authorization/auth");
+const teamManager = require("../middleware/authentication/teamManager");
 
 /////////////////////////////////
 //get all
@@ -27,29 +29,18 @@ router.get("/:id", async (req, res) => {
 
 ////////////////////////////////
 //create entity
-router.post("/", async (req, res) => {
+router.post("/", [auth, teamManager], async (req, res) => {
   //validate requestBody schema
   const { error } = validate(req.body);
-  //if error present in requestBody
   if (error) return res.status(400).send(error.details[0].message);
 
-  //   //check for players
-  //   const player = await Player.findById(req.body.playersId);
-  //   if (!player) return res.status(400).send("Player does not exist");
+  //check if team already registered
+  let team = await Team.findOne({ email: req.body.email });
+  if (team) return res.status(400).send("Team already registered");
 
   //create entity object
-  const team = new Team({
-    name: req.body.name,
-    owner: req.body.owner,
-    // players: { _id: player._id, name: player.name, country: player.country },
-  });
-
-  //save entiy to db
-  try {
-    team = await team.save(team);
-  } catch (err) {
-    console.log(err.message);
-  }
+  team = new Team(_.pick(req.body, ["name", "owner", "email"]));
+  team = await team.save(team);
 
   //return saved entity to respose
   res.send(team);
@@ -57,7 +48,7 @@ router.post("/", async (req, res) => {
 
 ////////////////////////////////
 //update entity
-router.put("/:id", async (req, res) => {
+router.put("/:id", [auth, teamManager], async (req, res) => {
   //look for the id in db
   const team = await Team.findById(req.params.id);
   //if entity not Found
@@ -74,6 +65,7 @@ router.put("/:id", async (req, res) => {
       {
         name: req.body.name,
         owner: req.body.owner,
+        email: req.body.email,
       },
       { new: true }
     );
@@ -86,7 +78,7 @@ router.put("/:id", async (req, res) => {
 ////////////////////////////////
 //delete entity
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", [auth, teamManager], async (req, res) => {
   //look for entity in db
   const team = await Team.findById(req.params.id);
   if (!team) return res.status(404).send("Team Not Found");
