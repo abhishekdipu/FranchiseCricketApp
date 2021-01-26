@@ -2,7 +2,7 @@
 
 by [Abhishek Kumar](https://abhishekdipu.tech/)
 
-![FCA](https://ibb.co/T1QXDS3)
+![FCA](https://i.ibb.co/MfzTy40/IPL-2020.jpg)
 
 Purpose : **For managing franchise cricket events.**
 
