@@ -32,7 +32,7 @@ const userSchema = new mongoose.Schema({
 
   role: {
     type: "String",
-    enum: ["owner", , "admin", "teamManager", "playerManager", "fan"],
+    enum: ["admin", "teamManager", "playerManager", "fan"],
     default: "fan",
   },
 });
@@ -54,7 +54,7 @@ const validate = (requestBody) => {
     name: Joi.string().required().min(2).max(20),
     email: Joi.string().required().min(5).max(256).email(),
     password: Joi.string().required().min(5).max(1024),
-    role: Joi.string(),
+    role: Joi.string().valid("teamManager", "playerManager", "fan"),
   });
 
   return schema.validate(requestBody);

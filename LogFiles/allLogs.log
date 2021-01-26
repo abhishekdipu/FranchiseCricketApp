@@ -155,3 +155,52 @@
 {"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T11:08:26.198Z"}
 {"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T11:09:09.543Z"}
 {"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T11:09:09.563Z"}
+{"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T15:00:56.066Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:00:56.085Z"}
+{"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T15:01:23.247Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:01:23.266Z"}
+{"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T15:01:45.442Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:01:45.461Z"}
+{"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T15:01:56.949Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:01:56.965Z"}
+{"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T15:03:51.903Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:03:51.919Z"}
+{"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T15:06:49.611Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:06:49.631Z"}
+{"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T15:06:51.854Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:06:51.870Z"}
+{"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T15:07:10.128Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:07:10.144Z"}
+{"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T15:07:16.806Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:07:16.823Z"}
+{"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T15:08:10.777Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:08:10.793Z"}
+{"message":"Unexpected token '}'","level":"error","timestamp":"2021-01-26T15:08:28.534Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:08:28.552Z"}
+{"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T15:08:37.030Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:08:37.051Z"}
+{"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T15:08:48.625Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:08:48.642Z"}
+{"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T15:11:51.958Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:11:51.975Z"}
+{"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T15:14:27.982Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:14:27.999Z"}
+{"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T15:21:44.404Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:21:44.422Z"}
+{"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T15:25:45.544Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:25:45.561Z"}
+{"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T15:27:18.602Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:27:18.620Z"}
+{"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T15:27:45.304Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:27:45.322Z"}
+{"message":"TypeError: Cannot read property 'role' of undefined\n    at /Users/abhishekkumar/workspace/Projects/git-projects/franchise-cricket/routes/users.js:19:16","level":"error","timestamp":"2021-01-26T15:28:19.407Z"}
+{"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T15:29:18.269Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:29:18.285Z"}
+{"message":"TypeError: Cannot read property 'role' of undefined\n    at /Users/abhishekkumar/workspace/Projects/git-projects/franchise-cricket/routes/users.js:19:16","level":"error","timestamp":"2021-01-26T15:29:22.820Z"}
+{"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T15:34:34.807Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:34:34.824Z"}
+{"message":"TypeError: Cannot read property 'role' of undefined\n    at /Users/abhishekkumar/workspace/Projects/git-projects/franchise-cricket/routes/users.js:19:16","level":"error","timestamp":"2021-01-26T15:34:38.682Z"}
+{"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T15:36:45.984Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:36:46.001Z"}
+{"message":"Listening on port: 6000 ; ENV: development","level":"info","timestamp":"2021-01-26T15:37:16.451Z"}
+{"message":"connected to mongodb...","level":"info","timestamp":"2021-01-26T15:37:16.468Z"}

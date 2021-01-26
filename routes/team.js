@@ -50,7 +50,7 @@ router.post("/", [auth, teamManager], async (req, res) => {
 //update entity
 router.put("/:id", [auth, teamManager], async (req, res) => {
   //look for the id in db
-  const team = await Team.findById(req.params.id);
+  let team = await Team.findById(req.params.id);
   //if entity not Found
   if (!team) return res.status(404).send("Team Not Found");
 
@@ -59,19 +59,16 @@ router.put("/:id", [auth, teamManager], async (req, res) => {
   if (error) return res.status(400).send(error.details[0].message);
 
   //update entity
-  try {
-    team = await Team.updateOne(
-      { _id: req.params.id },
-      {
-        name: req.body.name,
-        owner: req.body.owner,
-        email: req.body.email,
-      },
-      { new: true }
-    );
-  } catch (err) {
-    console.log(err.message);
-  }
+  team = await Team.updateOne(
+    { _id: req.params.id },
+    {
+      name: req.body.name,
+      owner: req.body.owner,
+      email: req.body.email,
+    },
+    { new: true }
+  );
+
   res.send(team);
 });
 
@@ -80,15 +77,11 @@ router.put("/:id", [auth, teamManager], async (req, res) => {
 
 router.delete("/:id", [auth, teamManager], async (req, res) => {
   //look for entity in db
-  const team = await Team.findById(req.params.id);
+  let team = await Team.findById(req.params.id);
   if (!team) return res.status(404).send("Team Not Found");
 
   //delete entity
-  try {
-    team = await Team.deleteOne({ _id: req.params.id }, { new: true });
-  } catch (err) {
-    console.log(err.message);
-  }
+  team = await Team.deleteOne({ _id: req.params.id }, { new: true });
 
   res.send(team);
 });
